@@ -173,7 +173,7 @@ if options:
     from nltk.corpus import stopwords
 
     # ... your code
-
+    nltk.download('punkt')
     # Tokenize text
     words = nltk.word_tokenize(text)
 
