@@ -26,7 +26,7 @@ data = data.dropna()
 st.subheader("scraped data")
 data
 
-workbook1 = openpyxl.load_workbook(filename="oldData\drHalaData.xlsx", data_only=True)
+workbook1 = openpyxl.load_workbook(filename="drHalaData.xlsx", data_only=True)
 sheet1 = workbook1.active
 data1 = []
 for row in sheet1.iter_rows():
@@ -84,7 +84,7 @@ cleaned_text_column = data1['text'].apply(clean_text, args=(replace_data,))
 data1['Cleaned Text'] = cleaned_text_column
 
 
-file_path = "./oldData/replace.xlsx"
+file_path = "replace.xlsx"
 df = pd.read_excel(file_path, sheet_name="Sheet2")
 Enviromental  = df['Enviromental dimesnsion'].dropna()
 Economic  = df['Economic Dimension'].dropna()
@@ -153,7 +153,7 @@ if options:
         return df.set_index('word')['translate'].to_dict()
 
     # Load the translation data into a dictionary
-    translation_dict = create_translation_dict("./oldData/translate.xlsx", "Sheet1")
+    translation_dict = create_translation_dict("translate.xlsx", "Sheet1")
 
     def translate_text(text):
         return translation_dict.get(text, text)  # Default to original text if not found
