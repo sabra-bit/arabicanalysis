@@ -170,10 +170,11 @@ if options:
 
     from collections import Counter
     import nltk
+    nltk.download('stopwords') 
     from nltk.corpus import stopwords
 
     # ... your code
-    nltk.download('punkt')
+    
     # Tokenize text
     words = nltk.word_tokenize(text)
 
